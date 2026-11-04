@@ -426,3 +426,11 @@ FodyWeavers.xsd
 
 # Official VS Code C# Dev Kit Extension exclusion
 #*.lscache
+
+# Node sample outputs and private local configuration
+dist/
+.azure/
+.local/
+.env
+.env.*
+!.env.example

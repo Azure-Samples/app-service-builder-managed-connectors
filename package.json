@@ -1,0 +1,23 @@
+{
+  "name": "builder-managed-connectors-test",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "start": "node dist/server.js",
+    "test:infra": "az bicep build --file infra/main.bicep --stdout | node scripts/check-infra.mjs"
+  },
+  "dependencies": {
+    "@azure/connectors": "0.2.0-preview",
+    "@azure/identity": "4.14.1",
+    "express": "5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
+}

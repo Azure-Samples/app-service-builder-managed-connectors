@@ -1,0 +1,12 @@
+name: builder-managed-connectors-test
+components:
+  - name: receiver
+    role: web
+    platform: nodejs
+    platformVersion: "24"
+    rootDirectory: .
+    build: npm ci && npm run build && npm prune --omit=dev && cp -R dist node_modules package.json "$DESTINATION_DIR/"
+    path: /
+    run:
+      start: node dist/server.js
+      port: 8080
